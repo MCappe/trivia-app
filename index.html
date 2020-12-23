@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia App</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+  <header id="header">
+    <div class="wrapper">
+      <div class="headerContainer">
+        <div class="logoName">
+          <p><a href="#header">Melissa</a></p>
+        </div>
+        <div class="nav">
+          <nav>
+            <ul>
+              <li><a href="#">Entertainment</a></li>
+              <li><a href="#">General</a></li>
+              <li><a href="#">Food Facts</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="loadIntro" id="loadIntro">
+      <div class="wrapper">
+        <div class="introSection">
+          <h1>Get your Trivia ON!</h1>
+          <h2>Select your subject:</h2>
+          <button>Entertainment</button>
+          <button>General</button>
+          <button>Food Facts</button>
+        </div>
+      </div>
+    </section>
+    <section class="afterLoad" id="afterLoad">
+      <div class="wrapper">
+        <h1>Get your Trivia ON!</h1>
+        <div class="questionsAndAnswers">
+          <h2>Question</h2>
+          <div class="answersContainer">
+            <ul>
+              <li><button>Answer</button></li>
+              <li><button>Answer</button></li>
+              <li><button>Answer</button></li>
+              <li><button>Answer</button></li>
+            </ul>
+            <div class="answerBox">
+              <p>CORRECT or INCORRECT</p>
+            </div>
+            <div class="tallyAndNext">
+              <div class="tally">
+                <p>Question 1 of 10</p>
+              </div>
+              <div class="nextQuestion">
+                <button>Next Question</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
