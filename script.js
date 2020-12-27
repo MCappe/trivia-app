@@ -121,6 +121,53 @@ const generalQuestions = [
 
 const foodFactsQuestions = [
   {
-    
+    question: `What is the most expensive spice in the world by weight?`,
+    answers: ['Nutmeg', 'Basil', 'Saffron', 'Old Bay'],
+    correctAnswer: 'Saffron'
+  },
+  {
+    question: `What cheese is traditionally used on a Reuben sandwich?`,
+    answers: ['Camembert', 'Swiss', 'Mozzarella', 'Bleu Cheese'],
+    correctAnswer: 'Swiss'
+  },
+  {
+    question: `Who invented spray cheese in a can?`,
+    answers: ['Kellogs', 'Keebler', 'Dare Foods', 'Nabisco'],
+    correctAnswer: 'Nabisco'
+  },
+  {
+    question: `Which pasta shape has a name meaning little tongues?`,
+    answers: ['Linguini', 'Tortellini', 'Ravioli', 'Macaroni'],
+    correctAnswer: 'Linguini'
+  },
+  {
+    question: `In which country might you be invited to a "hāngi", where your food would be roasted in a pit under the ground?`,
+    answers: ['United States', 'Greece', 'Phillipines', 'New Zealand'],
+    correctAnswer: 'New Zealand'
+  },
+  {
+    question: `Norway was responsible for introducing what fish for raw consumption in Japan?`,
+    answers: ['Tuna', 'Sea bass', 'Salmon', 'Mackerel'],
+    correctAnswer: 'Salmon'
+  },
+  {
+    question: `The mojito is a traditional rum cocktail from which country?`,
+    answers: ['Cuba', 'Mexico', 'Venezuela', 'Panama'],
+    correctAnswer: 'Cuba'
+  },
+  {
+    question: `Originally from Quebec, what food comes from the local french slang word for a "mess"?`,
+    answers: ['Cretons', 'Poutine', 'Sugar Pie', 'Pea Soup'],
+    correctAnswer: 'Poutine'
+  },
+  {
+    question: `Which fast food restaurant chain once tested bubble gum broccoli as a children's menu item?`,
+    answers: ['Burger King', 'White Castle', 'McDonalds', 'A&W'],
+    correctAnswer: 'McDonalds'
+  },
+  {
+    question: `Where was the fortune cookie invented?`,
+    answers: ['California', 'Bangkok', 'Beijing', 'Ontario'],
+    correctAnswer: 'California'
   }
 ]
