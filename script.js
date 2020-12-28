@@ -13,11 +13,14 @@
 
 // Questions for Entertainment
 
-const entertainmentQuestions = [
+let entertainmentQuestions = [
   {
     question: `Which actor voiced both Darth Vader and The Lions King's Mufasa?`,
-    answers: ['James Earl Jones', 'Morgan Freeman', 'Sean Connery', 'Christopher Lee'],
-    correctAnswer: 'James Earl Jones'
+    choice1: 'James Earl Jones',
+    choice2: 'Morgan Freeman',
+    choice3: 'Sean Connery',
+    choice4: 'Christopher Lee',
+    correctAnswer: 1,
   },
   {
     question: `What is Chandler Bing's middle name?`,
@@ -66,7 +69,7 @@ const entertainmentQuestions = [
   }
 ];
 
-const generalQuestions = [
+let generalQuestions = [
   {
     question: `What country is brie cheese originally from?`,
     answers: ['France', 'England', 'India', 'United States'],
@@ -119,7 +122,7 @@ const generalQuestions = [
   }
 ];
 
-const foodFactsQuestions = [
+let foodFactsQuestions = [
   {
     question: `What is the most expensive spice in the world by weight?`,
     answers: ['Nutmeg', 'Basil', 'Saffron', 'Old Bay'],
@@ -170,4 +173,105 @@ const foodFactsQuestions = [
     answers: ['California', 'Bangkok', 'Beijing', 'Ontario'],
     correctAnswer: 'California'
   }
-]
+];
+
+const question = document.querySelector('#question');
+const answers = Array.from(document.querySelectorAll('.answers'));
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+const nextQuestion = document.querySelector('#next');
+
+let currentQuestion = {}
+let acceptingAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
+
+const MAX_QUESTIONS = 10
+const SCORE_POINTS = 1
+
+startEntertainmentGame = () => {
+  questionCounter = 0
+  score = 0
+  availableQuestions = [...entertainmentQuestions]
+  getNewQuestion()
+}
+
+getNewQuestion = () => {
+  if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
+    return window.location.assign('/end.html')
+  }
+}
+
+startFoodGame = () => {
+  questionCounter = 0
+  score = 0
+  availableQuestions = [...foodFactsQuestions]
+  getNewQuestion()
+}
+
+getNewQuestion = () => {
+  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
+    return window.location.assign('/end.html')
+  }
+}
+
+startGeneralGame = () => {
+  questionCounter = 0
+  score = 0
+  availableQuestions = [...generalQuestions]
+  getNewQuestion()
+}
+
+getNewQuestion = () => {
+  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
+    return window.location.assign('/end.html')
+  }
+
+  questionCounter++
+  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+  
+  const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+  currentQuestion = availableQuestions[questionsIndex]
+  question.innerText = currentQuestion.question
+  
+  choices.forEach(choice => {
+    const number = choice.dataset['number']
+    choice.innerText = currentQuestion['choice' + number]
+  })
+  
+  availableQuestions.splice(questionsIndex, 1)
+  acceptingAnswers = true
+}
+
+choices.forEach(choice => {
+  choice.addEventListener('click', e => {
+    if(!acceptingAnswers) return
+    acceptingAnswers = false
+    const selectedChoice = e.target
+    const selectedAnswer = selectedChoice.dataset['number']
+
+    let classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
+
+    if(classToApply === 'correct') {
+      incrementScore(SCORE_POINTS)
+    }
+    selectedChoice.parentElement.classList.add(classToApply)
+
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply)
+      getNewQuestion()
+    }, 1000)
+  })
+})
+
+incrementScore = num => {
+  score += num
+  scoreText.innerText = score
+}
+
+startGame()
+

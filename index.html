@@ -47,24 +47,35 @@
       <div class="wrapper">
         <h1>Get your Trivia ON!</h1>
         <div class="questionsAndAnswers">
-          <h2>Question</h2>
           <div class="answersContainer">
-            <ul>
-              <li><button>Answer</button></li>
-              <li><button>Answer</button></li>
-              <li><button>Answer</button></li>
-              <li><button>Answer</button></li>
-            </ul>
+            <h2 id="question">Question</h2>
+            <div class="choice-container">
+              <p class="choice-prefix">A</p>
+              <p class="choice-text" data-number="1">Choice</p>
+            </div>
+            <div class="choice-container">
+              <p class="choice-prefix">B</p>
+              <p class="choice-text" data-number="2">Choice</p>
+            </div>
+            <div class="choice-container">
+              <p class="choice-prefix">C</p>
+              <p class="choice-text" data-number="3">Choice</p>
+            </div>
+            <div class="choice-container">
+              <p class="choice-prefix">D</p>
+              <p class="choice-text" data-number="4">Choice</p>
+            </div>
             <div class="answerBox">
               <p>CORRECT or INCORRECT</p>
             </div>
             <div class="tallyAndNext">
-              <div class="tally">
+              <div class="tally" id="next">
                 <p>Question 1 of 10</p>
               </div>
-              <div class="nextQuestion">
+              <h3 id="score">0</h3>
+              <!-- <div class="nextQuestion">
                 <button>Next Question</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
