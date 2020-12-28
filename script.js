@@ -13,7 +13,7 @@
 
 // Questions for Entertainment
 
-let entertainmentQuestions = [
+let questions = [
   {
     question: `Which actor voiced both Darth Vader and The Lions King's Mufasa?`,
     choice1: 'James Earl Jones',
@@ -24,61 +24,91 @@ let entertainmentQuestions = [
   },
   {
     question: `What is Chandler Bing's middle name?`,
-    answers: ['Maxwell', 'Muriel', 'Moses', 'Mildred'],
-    correctAnswer: 'Muriel'
+    choice1: 'Maxwell',
+    choice2: 'Muriel',
+    choice3: 'Moses',
+    choice4: 'Mildred',
+    correctAnswer: 2,
   },
   {
     question: `What is the name of Michelle Obama's 2018 memoir?`,
-    answers: ['Become', 'The Future', 'Becoming', 'Became'],
-    correctAnswer: 'Becoming'
+    choice1: 'Become',
+    choice2: 'The Future',
+    choice3: 'Becoming',
+    choice4: 'Became',
+    correctAnswer: 3,
   },
   {
     question: `What was the first non-English-language film to win Best Picture at the Oscars?`,
-    answers: ['Crouching Tiger, Hidden Dragon', 'Life is Beautiful', 'Parasite', 'Cries and Whispers' ],
-    correctAnswer: 'Parasite'
+    choice1: 'Crouching Tiger, Hidden Dragon',
+    choice2: 'Life is Beautiful',
+    choice3: 'Parasite',
+    choice4: 'Cries and Whispers',
+    correctAnswer: 3,
   },
   {
     question: `Which pop star is the godmother of both Elton John's sons?`,
-    answers: ['Lady Gaga', 'Madonna', 'Beyoncé', 'Adele'],
-    correctAnswer: 'Lady Gaga'
+    choice1: 'Lady Gaga',
+    choice2: 'Madonna',
+    choice3: 'Beyoncé',
+    choice4: 'Adele',
+    correctAnswer: 1,
   },
   {
     question: `What is Kramer's first name on Seinfeld?`,
-    answers: ['Sunshine', 'Cosmo', 'Krusty', 'Homer'],
-    correctAnswer: 'Cosmo'
+    choice1: 'Sunshine',
+    choice2: 'Cosmo',
+    choice3: 'Krusty',
+    choice4: 'Homer',
+    correctAnswer: 2,
   },
   {
     question: `Who is the half-blood prince in Harry Potter?`,
-    answers: ['Harry Potter', 'Tom Riddle', 'James Potter', 'Severus Snape'],
-    correctAnswer: 'Severus Snape'
+    choice1: 'Harry Potter',
+    choice2: 'Tom Riddle',
+    choice3: 'James Potter',
+    choice4: 'Severus Snape',
+    correctAnswer: 4,
   },
   {
     question: `Which pop star burnt down her home gym with candles?`,
-    answers: ['Britney Spears', 'Dua Lipa', 'Billie Eilish', 'JLo'],
-    correctAnswer: 'Britney Spears'
+    choice1: 'Britney Spears',
+    choice2: 'Dua Lipa',
+    choice3: 'Billie Eilish',
+    choice4: 'JLo',
+    correctAnswer: 1,
   },
   {
     question: `What movie in 2019 topped Avatar as the highest-grossing film of all time?`,
-    answers: ['Joker', 'Captain Marvel', 'Star Wars: The Rise of Skywalker', 'Avengers: Endgame'],
-    correctAnswer: 'Avengers: Endgame'
+    choice1: 'Joker',
+    choice2: 'Captain Marvel',
+    choice3: 'Star Wars: The Rise of Skywalker',
+    choice4: 'Avengers: Endgame',
+    correctAnswer: 4,
   },
   {
     question: `In 2020, Netflix aired a reality show that required participants to remain celibate. What was it called?`,
-    answers: ['The Circle', 'Love is Blind', 'Dating Around', 'Too Hot to Handle'],
-    correctAnswer: 'Too Hot to Handle'
-  }
-];
-
-let generalQuestions = [
+    choice1: 'The Circle',
+    choice2: 'Love is Blind',
+    choice3: 'Dating Around',
+    choice4: 'Too Hot to Handle',
+    correctAnswer: 4,
+  },
   {
     question: `What country is brie cheese originally from?`,
-    answers: ['France', 'England', 'India', 'United States'],
-    correctAnswer: 'France'
+    choice1: 'France',
+    choice2: 'England',
+    choice3: 'India',
+    choice4: 'United States',
+    correctAnswer: 1,
   },
   {
     question: `What does Ir stand for on the periodic table`,
-    answers: ['Iodine', 'Iron', 'Iridium', 'Indium'],
-    correctAnswer: 'Iridium'
+    choice1: 'Iodine',
+    choice2: 'Iron',
+    choice3: 'Iridium',
+    choice4: 'Indium',
+    correctAnswer: 3,
   },
   {
     question: `Which planet is closest to the sun?`,
@@ -122,156 +152,57 @@ let generalQuestions = [
   }
 ];
 
-let foodFactsQuestions = [
-  {
-    question: `What is the most expensive spice in the world by weight?`,
-    answers: ['Nutmeg', 'Basil', 'Saffron', 'Old Bay'],
-    correctAnswer: 'Saffron'
-  },
-  {
-    question: `What cheese is traditionally used on a Reuben sandwich?`,
-    answers: ['Camembert', 'Swiss', 'Mozzarella', 'Bleu Cheese'],
-    correctAnswer: 'Swiss'
-  },
-  {
-    question: `Who invented spray cheese in a can?`,
-    answers: ['Kellogs', 'Keebler', 'Dare Foods', 'Nabisco'],
-    correctAnswer: 'Nabisco'
-  },
-  {
-    question: `Which pasta shape has a name meaning little tongues?`,
-    answers: ['Linguini', 'Tortellini', 'Ravioli', 'Macaroni'],
-    correctAnswer: 'Linguini'
-  },
-  {
-    question: `In which country might you be invited to a "hāngi", where your food would be roasted in a pit under the ground?`,
-    answers: ['United States', 'Greece', 'Phillipines', 'New Zealand'],
-    correctAnswer: 'New Zealand'
-  },
-  {
-    question: `Norway was responsible for introducing what fish for raw consumption in Japan?`,
-    answers: ['Tuna', 'Sea bass', 'Salmon', 'Mackerel'],
-    correctAnswer: 'Salmon'
-  },
-  {
-    question: `The mojito is a traditional rum cocktail from which country?`,
-    answers: ['Cuba', 'Mexico', 'Venezuela', 'Panama'],
-    correctAnswer: 'Cuba'
-  },
-  {
-    question: `Originally from Quebec, what food comes from the local french slang word for a "mess"?`,
-    answers: ['Cretons', 'Poutine', 'Sugar Pie', 'Pea Soup'],
-    correctAnswer: 'Poutine'
-  },
-  {
-    question: `Which fast food restaurant chain once tested bubble gum broccoli as a children's menu item?`,
-    answers: ['Burger King', 'White Castle', 'McDonalds', 'A&W'],
-    correctAnswer: 'McDonalds'
-  },
-  {
-    question: `Where was the fortune cookie invented?`,
-    answers: ['California', 'Bangkok', 'Beijing', 'Ontario'],
-    correctAnswer: 'California'
-  }
-];
+// let foodFactsQuestions = [
+//   {
+//     question: `What is the most expensive spice in the world by weight?`,
+//     answers: ['Nutmeg', 'Basil', 'Saffron', 'Old Bay'],
+//     correctAnswer: 'Saffron'
+//   },
+//   {
+//     question: `What cheese is traditionally used on a Reuben sandwich?`,
+//     answers: ['Camembert', 'Swiss', 'Mozzarella', 'Bleu Cheese'],
+//     correctAnswer: 'Swiss'
+//   },
+//   {
+//     question: `Who invented spray cheese in a can?`,
+//     answers: ['Kellogs', 'Keebler', 'Dare Foods', 'Nabisco'],
+//     correctAnswer: 'Nabisco'
+//   },
+//   {
+//     question: `Which pasta shape has a name meaning little tongues?`,
+//     answers: ['Linguini', 'Tortellini', 'Ravioli', 'Macaroni'],
+//     correctAnswer: 'Linguini'
+//   },
+//   {
+//     question: `In which country might you be invited to a "hāngi", where your food would be roasted in a pit under the ground?`,
+//     answers: ['United States', 'Greece', 'Phillipines', 'New Zealand'],
+//     correctAnswer: 'New Zealand'
+//   },
+//   {
+//     question: `Norway was responsible for introducing what fish for raw consumption in Japan?`,
+//     answers: ['Tuna', 'Sea bass', 'Salmon', 'Mackerel'],
+//     correctAnswer: 'Salmon'
+//   },
+//   {
+//     question: `The mojito is a traditional rum cocktail from which country?`,
+//     answers: ['Cuba', 'Mexico', 'Venezuela', 'Panama'],
+//     correctAnswer: 'Cuba'
+//   },
+//   {
+//     question: `Originally from Quebec, what food comes from the local french slang word for a "mess"?`,
+//     answers: ['Cretons', 'Poutine', 'Sugar Pie', 'Pea Soup'],
+//     correctAnswer: 'Poutine'
+//   },
+//   {
+//     question: `Which fast food restaurant chain once tested bubble gum broccoli as a children's menu item?`,
+//     answers: ['Burger King', 'White Castle', 'McDonalds', 'A&W'],
+//     correctAnswer: 'McDonalds'
+//   },
+//   {
+//     question: `Where was the fortune cookie invented?`,
+//     answers: ['California', 'Bangkok', 'Beijing', 'Ontario'],
+//     correctAnswer: 'California'
+//   }
+// ];
 
-const question = document.querySelector('#question');
-const answers = Array.from(document.querySelectorAll('.answers'));
-const progressText = document.querySelector('#progressText');
-const scoreText = document.querySelector('#score');
-const nextQuestion = document.querySelector('#next');
-
-let currentQuestion = {}
-let acceptingAnswers = true
-let score = 0
-let questionCounter = 0
-let availableQuestions = []
-
-const MAX_QUESTIONS = 10
-const SCORE_POINTS = 1
-
-startEntertainmentGame = () => {
-  questionCounter = 0
-  score = 0
-  availableQuestions = [...entertainmentQuestions]
-  getNewQuestion()
-}
-
-getNewQuestion = () => {
-  if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-    localStorage.setItem('mostRecentScore', score)
-    return window.location.assign('/end.html')
-  }
-}
-
-startFoodGame = () => {
-  questionCounter = 0
-  score = 0
-  availableQuestions = [...foodFactsQuestions]
-  getNewQuestion()
-}
-
-getNewQuestion = () => {
-  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-    localStorage.setItem('mostRecentScore', score)
-    return window.location.assign('/end.html')
-  }
-}
-
-startGeneralGame = () => {
-  questionCounter = 0
-  score = 0
-  availableQuestions = [...generalQuestions]
-  getNewQuestion()
-}
-
-getNewQuestion = () => {
-  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-    localStorage.setItem('mostRecentScore', score)
-    return window.location.assign('/end.html')
-  }
-
-  questionCounter++
-  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-  
-  const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
-  currentQuestion = availableQuestions[questionsIndex]
-  question.innerText = currentQuestion.question
-  
-  choices.forEach(choice => {
-    const number = choice.dataset['number']
-    choice.innerText = currentQuestion['choice' + number]
-  })
-  
-  availableQuestions.splice(questionsIndex, 1)
-  acceptingAnswers = true
-}
-
-choices.forEach(choice => {
-  choice.addEventListener('click', e => {
-    if(!acceptingAnswers) return
-    acceptingAnswers = false
-    const selectedChoice = e.target
-    const selectedAnswer = selectedChoice.dataset['number']
-
-    let classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
-
-    if(classToApply === 'correct') {
-      incrementScore(SCORE_POINTS)
-    }
-    selectedChoice.parentElement.classList.add(classToApply)
-
-    setTimeout(() => {
-      selectedChoice.parentElement.classList.remove(classToApply)
-      getNewQuestion()
-    }, 1000)
-  })
-})
-
-incrementScore = num => {
-  score += num
-  scoreText.innerText = score
-}
-
-startGame()
 
