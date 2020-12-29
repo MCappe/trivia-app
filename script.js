@@ -11,7 +11,17 @@
 // The user will be given the option to play again, which will bring them back to the original screen with the subject options
   // subject options will also be available in the top header nav, so they can interrupt their current game to go to another subject if they choose (but will get an alert asking if they'd like to end the current game)
 
-// Questions for Entertainment
+
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.choiceText'));
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+
+let currentQuestion = {}
+let acceptingAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
 
 let questions = [
   {
@@ -112,97 +122,128 @@ let questions = [
   },
   {
     question: `Which planet is closest to the sun?`,
-    answers: ['Uranus', 'Mars', 'Earth', 'Mercury'],
-    correctAnswer: 'Mercury'
+    choice1: 'Uranus',
+    choice2: 'Mars',
+    choice3: 'Earth',
+    choice4: 'Mercury',
+    correctAnswer: 4,
   },
   {
     question: `What is the largest country in the world?`,
-    answers: ['India', 'Antarctica', 'Russia', 'Canada'],
-    correctAnswer: 'Russia'
+    choice1: 'India',
+    choice2: 'China',
+    choice3: 'Russia',
+    choice4: 'Canada',
+    correctAnswer: 3,
   },
   {
     question: `Which fashion designer reportedly had a relationship with Winston Churchill?`,
-    answers: ['Edith Head', 'Coco Chanel', 'Betsey Johnson', 'Diane von Furstenberg'],
-    correctAnswer: 'Coco Chanel'
+    choice1: 'Edith Head',
+    choice2: 'Coco Chanel',
+    choice3: 'Betsey Johnson',
+    choice4: 'Diano von Furstenberg',
+    correctAnswer: 2,
   },
   {
     question: `If you have cryophobia, what are you afraid of?`,
-    answers: ['Fear of heights', 'Fear of blood', 'Fear of water', 'Fear of ice or cold'],
-    correctAnswer: 'Fear of ice or cold'
+    choice1: 'Fear of heights',
+    choice2: 'Fear of blood',
+    choice3: 'Fear of water',
+    choice4: 'Fear of ice or cold',
+    correctAnswer: 4,
   },
   {
     question: `What was the first state in the United States?`,
-    answers: ['Florida', 'Virginia', 'Texas', 'Delaware'],
-    correctAnswer: 'Delaware'
+    choice1: 'Florida',
+    choice2: 'Virginia',
+    choice3: 'Texas',
+    choice4: 'Delaware',
+    correctAnswer: 4,
   },
   {
     question: `What is the third sign of the zodiac?`,
-    answers: ['Capricorn', 'Aquarius', 'Gemini', 'Libra'],
-    correctAnswer: 'Gemini'
+    choice1: 'Capricorn',
+    choice2: 'Aquarius',
+    choice3: 'Gemini',
+    choice4: 'Libra',
+    correctAnswer: 3,
   },
   {
     question: `What language has the most words?`,
-    answers: ['English', 'Mandarin', 'Spanish', 'Hebrew'],
-    correctAnswer: 'English'
+    choice1: 'English',
+    choice2: 'Mandarin',
+    choice3: 'Spanish',
+    choice4: 'Hebrew',
+    correctAnswer: 1,
   },
   {
     question: `Who is the author of Jurassic Park?`,
-    answers: ['Dean Koontz', 'Michael Crichton', 'James Patterson', 'John Grishom'],
-    correctAnswer: 'Michael Crichton'
-  }
+    choice1: 'Dean Koontz',
+    choice2: 'Michael Crichton',
+    choice3: 'James Patterson',
+    choice4: 'John Grisham',
+    correctAnswer: 2,
+  },
 ];
 
-// let foodFactsQuestions = [
-//   {
-//     question: `What is the most expensive spice in the world by weight?`,
-//     answers: ['Nutmeg', 'Basil', 'Saffron', 'Old Bay'],
-//     correctAnswer: 'Saffron'
-//   },
-//   {
-//     question: `What cheese is traditionally used on a Reuben sandwich?`,
-//     answers: ['Camembert', 'Swiss', 'Mozzarella', 'Bleu Cheese'],
-//     correctAnswer: 'Swiss'
-//   },
-//   {
-//     question: `Who invented spray cheese in a can?`,
-//     answers: ['Kellogs', 'Keebler', 'Dare Foods', 'Nabisco'],
-//     correctAnswer: 'Nabisco'
-//   },
-//   {
-//     question: `Which pasta shape has a name meaning little tongues?`,
-//     answers: ['Linguini', 'Tortellini', 'Ravioli', 'Macaroni'],
-//     correctAnswer: 'Linguini'
-//   },
-//   {
-//     question: `In which country might you be invited to a "hāngi", where your food would be roasted in a pit under the ground?`,
-//     answers: ['United States', 'Greece', 'Phillipines', 'New Zealand'],
-//     correctAnswer: 'New Zealand'
-//   },
-//   {
-//     question: `Norway was responsible for introducing what fish for raw consumption in Japan?`,
-//     answers: ['Tuna', 'Sea bass', 'Salmon', 'Mackerel'],
-//     correctAnswer: 'Salmon'
-//   },
-//   {
-//     question: `The mojito is a traditional rum cocktail from which country?`,
-//     answers: ['Cuba', 'Mexico', 'Venezuela', 'Panama'],
-//     correctAnswer: 'Cuba'
-//   },
-//   {
-//     question: `Originally from Quebec, what food comes from the local french slang word for a "mess"?`,
-//     answers: ['Cretons', 'Poutine', 'Sugar Pie', 'Pea Soup'],
-//     correctAnswer: 'Poutine'
-//   },
-//   {
-//     question: `Which fast food restaurant chain once tested bubble gum broccoli as a children's menu item?`,
-//     answers: ['Burger King', 'White Castle', 'McDonalds', 'A&W'],
-//     correctAnswer: 'McDonalds'
-//   },
-//   {
-//     question: `Where was the fortune cookie invented?`,
-//     answers: ['California', 'Bangkok', 'Beijing', 'Ontario'],
-//     correctAnswer: 'California'
-//   }
-// ];
+const SCORE_POINTS = 1
+const MAX_QUESTIONS = 10
 
+startGame = () => {
+  questionCounter = 0
+  score = 0
+  availableQuestions = [...questions]
+  getNewQuestion()
+}
 
+getNewQuestion = () => {
+  if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
+    return window.location.assign('/end.html')
+  }
+
+  questionCounter++
+  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+
+  const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+  currentQuestion = availableQuestions[questionsIndex]
+  question.innerText = currentQuestion.question
+
+  choices.forEach(choice => {
+    const number = choice.dataset['number']
+    choice.innerText = currentQuestion['choice' + number]
+  })
+
+  availableQuestions.splice(questionsIndex, 1)
+  acceptingAnswers = true
+}
+
+choices.forEach(choice => {
+  choice.addEventListener('click', e => {
+    if(!acceptingAnswers) return
+
+    acceptingAnswers = false
+    const selectedChoice = e.target
+    const selectedAnswer = selectedChoice.dataset['number']
+
+    let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+
+    if(classToApply === 'correct') {
+      incrementScore(SCORE_POINTS)
+    }
+
+    selectedChoice.parentElement.classList.add(classToApply)
+
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply)
+      getNewQuestion()
+    }, 1000)
+  })
+})
+
+incrementScore = num => {
+  score += num
+  scoreText.innerText = score
+}
+
+startGame()
