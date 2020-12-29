@@ -187,7 +187,7 @@ let questions = [
 ];
 
 const SCORE_POINTS = 1
-const MAX_QUESTIONS = 10
+const MAX_QUESTIONS = 20
 
 startGame = () => {
   questionCounter = 0
@@ -226,7 +226,7 @@ choices.forEach(choice => {
     const selectedChoice = e.target
     const selectedAnswer = selectedChoice.dataset['number']
 
-    let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+    let classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
 
     if(classToApply === 'correct') {
       incrementScore(SCORE_POINTS)

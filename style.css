@@ -43,6 +43,8 @@ button:focus {
   --main-bg: blueviolet;
   --main-font: black;
   --main-font-family: 'Roboto Mono', monospace;
+  --correct-answer: #7fff00;
+  --incorrect-answer: #ff7f50;
 }
 
 /* Header Styles */
@@ -89,10 +91,6 @@ main {
   height: 100vh;
 }
 
-/* .afterLoad {
-  visibility: hidden;
-} */
-
 h1 {
   margin-top: 0;
   text-align: center;
@@ -106,31 +104,59 @@ h1 {
 
 h2 {
   text-align: center;
-  padding-bottom: 20px;
 }
 
 .answersContainer {
   text-align: center;
   margin: 0;
   padding: 0;
-  display: inline;
-}
-
-.answerBox {
-  text-align: center;
-  font-size: 0.9rem;
-  padding-top: 20px;
-}
-
-.tallyAndNext {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
-.tally {
-  padding-left: 20px;
+.choiceContainer {
+  background-color: white;
+  width: 50%;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 5px;
+  background-color: var(--header-bg);
+  border: 2px solid var(--main-font);
   font-size: 0.9rem;
 }
+
+.choiceContainer:hover {
+  cursor: pointer;
+  /* box-shadow: 0 0.4rem 1.4rem 0 var(--header-bg); */
+  transform: scale(1.02);
+  transform: transform 100ms;
+}
+
+.correct {
+  background: var(--correct-answer);
+}
+
+.incorrect {
+  background: var(--incorrect-answer);
+}
+
+.tally,
+.totalScore {
+  font-size: 0.9rem;
+  align-self: flex-start;
+  margin-left: 20px;
+}
+
+.totalScore {
+  background: var(--header-bg);
+  border-radius: 25px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--main-font);
+}
+
 
 
 
