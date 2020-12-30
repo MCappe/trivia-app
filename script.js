@@ -141,7 +141,7 @@ let questions = [
     choice1: 'Edith Head',
     choice2: 'Coco Chanel',
     choice3: 'Betsey Johnson',
-    choice4: 'Diano von Furstenberg',
+    choice4: 'Diane von Furstenberg',
     correctAnswer: 2,
   },
   {
@@ -187,7 +187,7 @@ let questions = [
 ];
 
 const SCORE_POINTS = 1
-const MAX_QUESTIONS = 20
+const MAX_QUESTIONS = 10
 
 startGame = () => {
   questionCounter = 0
@@ -197,9 +197,9 @@ startGame = () => {
 }
 
 getNewQuestion = () => {
-  if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+  if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     localStorage.setItem('mostRecentScore', score)
-    return window.location.assign('/end.html')
+    return window.location.assign('./end.html')
   }
 
   questionCounter++
